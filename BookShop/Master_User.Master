@@ -1,0 +1,160 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Master_User.master.cs" Inherits="BookShop.Master_User" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+     <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>BookShop</title>
+       <link rel="icon" href="images/icon-book-16.png" type="image/png" sizes="16x16" />
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>
+     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="StyleSheet/reset.min.css" type="text/css" data-noprefix/>
+    <link rel="stylesheet" type="text/css" href="StyleSheet/style.css" data-noprefix/>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <script src="JavaScript/prefixfree.min.js"></script>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+    <div>
+         <header>
+      <h1>BOOKSHOP</h1>
+      <p>Mỗi quyển sách một chân trời</p>
+    </header>
+    <hr>
+    <nav class="navbar navbar-expand-md bg-dark navbar-dark sticky-top mr-auto">
+      <a class="navbar-brand" href="Default.aspx">TRANG CHỦ</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+      <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="collapsibleNavbar">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="#">Giới thiệu</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="LienHe.aspx">Liên hệ</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Cẩm nang</a>
+          </li>
+        </ul>
+      </div>
+      <a  href="DangNhap.aspx" class="btn btn-outline-primary" id="dangnhap" runat="server" style="margin: 0 10px;">Đăng nhập</a>
+      <a  href="DangKy.aspx" class="btn btn-outline-success" id="dangky" runat="server" style="margin: 0 10px;">Đăng ký</a>
+         <a class="taikhoan" id="lnkTenAdmin" runat="server" onserverclick="lnkTenAdmin_ServerClick"></a>
+      <button id="dangxuat" type="button" class="btn btn-outline-warning" runat="server" onserverclick="dangxuat_ServerClick" style="margin: 0 10px;">Đăng xuất</button>
+    </nav>
+    <section id="slide">
+      <article id="slider_content">
+        <h3>Danh ngôn</h3>
+        <p>Nếu bạn chỉ đọc những cuốn sách mà tất cả mọi người đều đọc, bạn chỉ có thể nghĩ tới điều tất cả mọi người đều nghĩ tới.<br>
+          <span class="font-italic">"If you only read the books that everyone else is reading, you can only think what everyone else is thinking."</span><br>
+          <span class="responsive_button font-italic">--Haruki Murakami--</span></p>
+          
+        </article>
+        <div id="slider">
+          <figure>
+            <img src="images/slide-1.jpg"alt="">
+            <img src="images/slide-2.jpg"alt="">
+            <img src="images/slide-3.jpg"alt="">
+            <img src="images/slide-4.jpg"alt="">
+          </figure>
+        </div>
+      </section>
+        
+        <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+            <ContentTemplate>
+                <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+        <div class="form-inline m-auto" >
+            <asp:RegularExpressionValidator runat="server" CssClass="text-warning mr-2" ControlToValidate="txtTuKhoa" ValidationExpression="^([\S\s]{0,100})$" ErrorMessage="Giới hạn 100 ký tự" Display="Dynamic"></asp:RegularExpressionValidator>
+          <asp:TextBox runat="server" ID="txtTuKhoa" class="form-control mr-sm-2" type="text" placeholder="Nhập từ khoá..." />
+          <asp:Button runat="server" ID="btnTimKiem" OnClick="btnTimKiem_Click" class="btn btn-success" type="submit" Text="Tìm kiếm"></asp:Button>
+
+        </div>
+        <a id="cart" class="mr-4" href="GioHang.aspx"><i class="fas fa-shopping-cart"></i>(<asp:Label runat="server" ID="lblSoSP" Text="0"></asp:Label>)</a>
+      </nav>
+      <section class="container-fluid">
+        <div class="row">
+          <div class="col-lg-2 bg-light border-right sidebar" >
+            <nav class="navbar bg-light navbar-light">
+              <span class="navbar-brand" >DANH MỤC</span>
+            </nav>
+            <hr>
+              <asp:Repeater runat="server" ID="rpDanhMucSP" OnItemCommand="rpDanhMucSP_ItemCommand">
+                  <HeaderTemplate>
+                       <ul class="nav flex-column">
+                  </HeaderTemplate>
+                  <ItemTemplate>
+                      <li class="nav-item">
+                <asp:LinkButton runat="server" CssClass="nav-link" CommandName='<%#:Eval("TENDM") %>' CommandArgument='<%#:Eval("MADM")%>' Text='<%#:Eval("TENDM") %>'>Link</asp:LinkButton>
+              </li>
+                  </ItemTemplate>
+                  <FooterTemplate>
+                       </ul>
+                  </FooterTemplate>
+              </asp:Repeater>
+            
+          </div>
+            <div class="col bg-light content">
+             
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        
+        </asp:ContentPlaceHolder> 
+            </div>
+      </div>
+    </section>
+            </ContentTemplate>
+        </asp:UpdatePanel>
+      
+ 
+    <footer>
+      <section id="extra_content">
+        <article class="column">
+          <h4>Giới thiệu BookShop</h4>
+        BookShop là địa chỉ mua sách online quen thuộc của hàng ngàn độc giả trên cả nước. Với đầu sách phong phú, thuộc các thể loại: Văn học nước ngoại, Văn học trong nước, Kinh tế, Kỹ năng sống, Thiếu nhi, Sách học ngoại ngữ, Sách chuyên ngành,... được cập nhật liên tục từ các nhà xuất bản uy tín trong nước. 
+        </article>
+        <article class="column midlist">
+          <h4>Hướng dẫn</h4>
+          <ul>
+            <li><a href="#_">Hướng dẫn mua hàng</a></li>
+            <li><a href="#_">Hướng dẫn thanh toán </a></li>
+            <li><a href="#_">Phương thức vận chuyển</a></li>
+            <li><a href="#_">Câu hỏi thường gặp</a></li>
+          </ul>
+        </article>
+        <article class="column rightlist">
+          <h4>Cẩm nang</h4>
+          <ul>
+            <li><a href="#_"><img src="images/slide-1.jpg"alt=""><span>Cách chọn sách phù hợp với lứa tuổi, sở thích</span></a></li>
+            <li><a href="#_"><img src="images/slide-2.jpg"alt=""><span>Lợi ích của việc đọc sách hằng ngày</span></a></li>
+            <li><a href="#_"><img src="images/slide-3.jpg"alt=""><span>Khảo sát việc đọc sách tại Việt Nam</span></a></li>
+          </ul>
+        </article>
+      </section>
+      <section id="page_owner_info">
+        <div class="wraper">
+          <div class="copyright">@ Copyright 2019 by <a href="https://www.facebook.com/nguyenvanho.vn">NV Hoor</a>. All Rights Reserved.
+        </div>
+        <div class="social">
+          <a href="#"><img src="images/youtube-logo.png" alt=""></a>
+          <a href="#"><img src="images/twitter-logo.png" alt=""></a>
+          <a href="#"><img src="images/instagram-logo.png" alt=""></a>
+          <a href="https://www.facebook.com/nguyenvanho.vn"><img src="images/facebook-logo.png" alt=""></a>
+        </div>
+      </div>
+    </section>
+  </footer>
+       
+    </div>
+    </form>
+</body>
+</html>

@@ -1,0 +1,81 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Master_Default.master.cs" Inherits="BookShop.Master_Default" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+       <link rel="icon" href="images/icon-book-16.png" type="image/png" sizes="16x16" />
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <link rel="stylesheet" href="StyleSheet/reset.min.css" type="text/css" data-noprefix>
+    <link rel="stylesheet" type="text/css" href="StyleSheet/style.css" data-noprefix>
+      <meta charset="UTF-8">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <script src="JavaScript/prefixfree.min.js"></script>
+    
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+         <header>
+      <h1>BOOKSHOP</h1>
+      <p>Mỗi quyển sách một chân trời</p>
+    </header>
+       <hr>
+    <nav class="navbar navbar-expand-md bg-dark navbar-dark sticky-top mr-auto">
+      <asp:HyperLink class="navbar-brand" id="lnkHome" runat="server" >TRANG CHỦ</asp:HyperLink>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+      <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="collapsibleNavbar">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="#">Giới thiệu</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="LienHe.aspx">Liên hệ</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Cẩm nang</a>
+          </li>
+        </ul>
+      </div>
+       
+     
+    </nav>
+        <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+
+        <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+            <ContentTemplate>
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+    </asp:ContentPlaceHolder>
+            </ContentTemplate>
+        </asp:UpdatePanel>
+    
+     <footer class="footer-admin">
+        <section id="page_owner_info">
+          <div class="wraper">
+            <div class="copyright">@ Copyright 2019 by <a href="#">NV Hoor</a>. All Rights Reserved.
+          </div>
+          <div class="social">
+            <a href="#"><img src="images/youtube-logo.png" alt=""></a>
+            <a href="#"><img src="images/twitter-logo.png" alt=""></a>
+            <a href="#"><img src="images/instagram-logo.png" alt=""></a>
+            <a href="#"><img src="images/facebook-logo.png" alt=""></a>
+          </div>
+        </div>
+      </section>
+    </footer>
+       
+    </div>
+    </form>
+</body>
+</html>
