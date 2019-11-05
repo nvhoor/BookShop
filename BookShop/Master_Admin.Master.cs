@@ -17,7 +17,7 @@ namespace BookShop
                 if (Session["login-admin"] != null)
                 {
 
-                    lnkTenAdmin.InnerText = xlhk.TimTaiKhoan(Session["login-admin"].ToString()).Rows[0]["HOTEN"].ToString();
+                lnkTenAdmin.InnerText = xlhk.TimTaiKhoan(Session["login-admin"].ToString()).Rows[0]["HOTEN"].ToString();
                 }
                 else
                 {

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Security;
 using System.Web.SessionState;
-using System.Configuration;
+
 namespace BookShop
 {
     public class Global : System.Web.HttpApplication
@@ -12,7 +12,7 @@ namespace BookShop
 
         protected void Application_Start(object sender, EventArgs e)
         {
-            SQLDB.SQLDB.ConnectionString = ConfigurationManager.ConnectionStrings["Connect"].ToString();
+
         }
 
         protected void Session_Start(object sender, EventArgs e)
