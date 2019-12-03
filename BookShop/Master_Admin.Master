@@ -46,7 +46,7 @@
           </li>
         </ul>
       </div>
-      <a class="taikhoan" id="lnkTenAdmin" runat="server"> </a>
+      <a class="taikhoan" id="lnkTenAdmin" runat="server" onserverclick="lnkTenAdmin_ServerClick"> </a>
       <button id="dangxuat" type="button" class="btn btn-outline-warning" runat="server" onserverclick="dangxuat_ServerClick" style="margin: 0 10px;">Đăng xuất</button>
       
     </nav>

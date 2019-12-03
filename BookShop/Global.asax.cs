@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Web;
 using System.Web.Security;
@@ -12,7 +13,7 @@ namespace BookShop
 
         protected void Application_Start(object sender, EventArgs e)
         {
-
+            SQLDB.SQLDB.ConnectionString = ConfigurationManager.ConnectionStrings["Connect"].ConnectionString;
         }
 
         protected void Session_Start(object sender, EventArgs e)

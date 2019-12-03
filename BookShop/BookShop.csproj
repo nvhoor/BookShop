@@ -738,7 +738,6 @@
     <Compile Include="LienHe.aspx.designer.cs">
       <DependentUpon>LienHe.aspx</DependentUpon>
     </Compile>
-    <Compile Include="lnkTenAdmin.cs" />
     <Compile Include="Master_Admin.Master.cs">
       <DependentUpon>Master_Admin.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

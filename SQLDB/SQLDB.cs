@@ -12,7 +12,7 @@ namespace SQLDB
   public static class SQLDB
     {
       
-        private static string connectionString = @"Data Source=DIEUTHAN\SQLEXPRESS;Initial Catalog=BookShop;Integrated Security=True";
+        private static string connectionString = "";
         public static string ConnectionString
         {
             get

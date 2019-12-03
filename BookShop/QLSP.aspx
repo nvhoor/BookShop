@@ -3,8 +3,6 @@
 <%@ Register Assembly="FreeTextBox" Namespace="FreeTextBoxControls" TagPrefix="FTB" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
      <title>Quản lý sản phẩm</title>
-      
-       
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
   

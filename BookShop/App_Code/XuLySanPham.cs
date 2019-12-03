@@ -39,7 +39,6 @@ namespace BookShop.App_Code
             cmd.Parameters.AddWithValue("@SOLUONGBAN",SOLUONGBAN);
             cmd.Parameters.AddWithValue("@NGAYTAO", NGAYTAO);
             cmd.Parameters.AddWithValue("@TRANGTHAI", TRANGTHAI);
-            cmd.CommandType = CommandType.Text;
             SQLDB.SQLDB.ExcuteNonQuery(cmd);
         }
         public void CapNhatSanPham(string MASP, string MADM, string TENSP, string HINH, decimal DONGIA, string TACGIA, int SOTRANG, string NXB, string MOTA, int SOLUONGBAN, bool TRANGTHAI)
